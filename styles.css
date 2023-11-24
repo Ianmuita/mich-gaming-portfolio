@@ -1,0 +1,265 @@
+*{
+    font-weight: 500;
+    font-family:'Courier New', Courier, monospace, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;;
+}
+
+html{
+    background-image: url("background-img\ portfolio.png");
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    color: azure;
+    display: grid;
+    width: 100%;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 120px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(210, 195, 208, 0);
+}
+
+a{
+    position: relative;
+    display: inline-block;
+    padding: 8px 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #03e9f4;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-right: 60px;
+}
+
+a:hover{
+    background-color: #03e9f4;
+    color: #000;
+    box-shadow: o o 5px #03e9f4
+                o o 20px #03e9f4
+                o o 50px #03e9f4;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+a:first-child{
+    filter: hue-rotate(225deg);
+
+}
+
+a:last-child{
+    filter: hue-rotate(90deg);
+}
+
+a span{
+    position:absolute;
+    display:block;
+
+}
+
+a span:nth-child(1){
+    top:0;
+    left: 0;
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: animate1 1.2s infinite;
+
+}
+
+@keyframes animate1 {
+    0%{
+        left: -52%;
+    }
+    100%{
+        left: 52%;
+
+    }
+}
+
+a span:nth-child(2){
+    top: -100%;
+    right: 0;
+    width: 1px;
+    height: 70%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: animate2 1s infinite;
+    animation-delay: .2s;
+}
+
+@keyframes animate2 {
+    0%{
+        top: -60%;
+    }
+    100%{
+        top: 52%;
+    }
+}
+
+a span:nth-child(3) {
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 1px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: animate3 1.2s infinite;
+    animation-delay: .5s;
+}
+
+@keyframes animate3 {
+    0%{
+        right: -52%;
+    }
+    100%{
+        right: 52%;
+    }
+}
+
+a span:nth-child(4) {
+    bottom: 0;
+    left: 0;
+    height: 70%;
+    width: 1px;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: animate4 1s infinite;
+    animation-delay: .75s;
+}
+
+@keyframes animate4{
+    0%{
+        bottom: -52%;
+
+    }
+    100%{
+        bottom: 52%;
+    }
+}
+
+.wrapper img{
+    margin-right: 200px;
+}
+
+.Intro{
+    position: relative;
+    top: 30%;
+    left: 1%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+header{
+    position: absolute;
+    top: 37%;
+    left: 360px;
+    margin-bottom: 20px;
+}
+
+.introduction-text{
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid white;
+    max-width: 45%;
+    position: absolute;
+    top: 90%;
+    left: 25%;
+}
+
+.image-container{
+    display: flex;
+    margin-left: 20px;
+    position: absolute;
+    top: 130px;
+    right: 100px;
+    width: 250px;
+    height: 425px;
+    transform-style: preserve-3d;
+    transition: rotate 700ms ease;
+}
+
+.image-container img{
+    width: 250px;
+}
+
+.image-container:hover{
+    rotate: x 30deg;
+}
+.image-container::before{
+    content: '';
+    position:absolute;
+    z-index: 100;
+    inset: 0;
+    background-image: radial-gradient(circle, transparent 180px, red);
+    opacity: 0;
+}
+.image-container:hover::before{
+    opacity: 1;
+}
+.image-container::after{
+    content: "";
+    position: absolute;
+    z-index: 1;
+    translate: 0;
+    transform: translateZ(-80px);
+    inset: 80% 0.5rem 0.5rem;
+    background: red;
+    filter: blur(0.8rem);
+    transition: rotate 300ms ;
+}
+.image-container:hover::after{
+    translate: 0 40px;
+    rotate: x -30deg;
+}
+.mich-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    aspect-ratio: 16/9;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.logo,
+.front-image{
+    position: absolute;
+}
+.logo{
+    z-index: 1000;
+    width:350px;
+    inset: auto 0 -1.9rem;
+    margin-inline: auto;
+    transition: 300ms ease;
+    transform: translateY(0) translateZ(20px)
+}
+.image-container:hover .logo{
+    transform: translateY(-1rem) translateZ(20px);
+    rotate: x -30deg;
+}
+.front-image{
+    opacity: 0;
+    z-index: 100;
+    scale: 1.1;
+    transform-origin: bottom;
+}
+.image-container:hover .front-image{
+    opacity: 1;
+    transform: translateY(-0.8rem) translateZ(-20px);
+    rotate: x -30deg;
+}
